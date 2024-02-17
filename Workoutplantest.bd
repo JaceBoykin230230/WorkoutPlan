@@ -1,0 +1,46 @@
+The initial tables: 
+
+CREATE TABLE exercises (
+    exercise_id INTEGER PRIMARY KEY,
+    name TEXT,
+    description TEXT,
+    muscle_group TEXT,
+    difficulty INTEGER
+);
+
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER,
+    weight REAL,
+    height REAL
+);
+
+CREATE TABLE daily_workout_plans (
+    plan_id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    exercise_id INTEGER,
+    sets INTEGER,
+    reps INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (exercise_id) REFERENCES exercises(exercise_id)
+);
+
+Sample Data:
+
+INSERT INTO exercises (name, description, muscle_group, difficulty) VALUES
+    ('Push-ups', 'Bodyweight exercise where you push yourself up from the ground.', 'Chest, Triceps', 2),
+    ('Squats', 'Lower body exercise where you bend your knees to lower your body.', 'Quadriceps, Glutes', 2),
+    ('Pull-ups', 'Upper body exercise where you pull yourself up to a bar.', 'Back, Biceps', 3);
+
+INSERT INTO users (name, age, weight, height) VALUES
+    ('John Doe', 30, 80.5, 175),
+    ('Jane Smith', 25, 65.2, 163);
+
+INSERT INTO daily_workout_plans (user_id, exercise_id, sets, reps) VALUES
+    (1, 1, 3, 10),
+    (1, 2, 3, 12),
+    (1, 3, 3, 8),
+    (2, 1, 4, 12),
+    (2, 2, 4, 15),
+    (2, 3, 4, 10);
