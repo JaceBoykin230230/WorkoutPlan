@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Exercise</title>
+</head>
+<body>
+    <h2>Add a New Exercise</h2>
+    <form action="/add-exercise-submit" method="post">
+        <label for="name">Exercise Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br>
+        <label for="muscle_group">Muscle Group:</label><br>
+        <input type="text" id="muscle_group" name="muscle_group"><br>
+        <label for="difficulty">Difficulty:</label><br>
+        <select id="difficulty" name="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
